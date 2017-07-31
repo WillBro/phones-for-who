@@ -14,5 +14,10 @@ public class PhoneShop {
         System.out.println(nokia);
 
         nokia.displayContacts();
+
+        System.out.println(nokia.findContactByName("Mary"));
+        System.out.println(nokia.getContactList().hasContacts());
+        System.out.println(nokia.getContactList().numberOfContacts());
+        System.out.println(samsung.getContactList().numberOfContacts());
     }
 }

@@ -7,6 +7,10 @@ public class MobilePhone implements PhoneInterface {
         this.contactList = new ContactList();
     }
 
+    public ContactList getContactList() {
+        return contactList;
+    }
+
     @Override
     public void addContact(Contact contactToAdd) {
         contactList.addContact(contactToAdd);
@@ -22,9 +26,13 @@ public class MobilePhone implements PhoneInterface {
         contactList.printContacts();
     }
 
+    public Contact findContactByName(String name) {
+        return contactList.findContactByName(name);
+    }
+
     @Override
     public void quit() {
-
+        // TBD
     }
 
     @Override

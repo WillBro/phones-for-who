@@ -33,12 +33,7 @@ public class ContactList {
     }
 
     public void updateContact(Contact contactToUpdate, String newNumber) {
-        Contact foundContact = contacts
-                .stream()
-                .filter(
-                        item -> item.getName().equals(contactToUpdate.getName())
-                )
-                .findFirst().orElse(null);
+        Contact foundContact = findContactByName(contactToUpdate.getName());
 
         if (foundContact != null) {
             System.out.println(
@@ -60,14 +55,16 @@ public class ContactList {
      * @return true if the contactToFind already exists by name, false otherwise
      */
     boolean contactExists(final Contact contactToFind) {
-        Contact foundContact = contacts
+        return findContactByName(contactToFind.getName()) != null;
+    }
+
+    public Contact findContactByName(String nameToFind) {
+        return contacts
                 .stream()
                 .filter(
-                        item -> item.getName().equals(contactToFind.getName())
+                        item -> item.getName().equals(nameToFind)
                 )
                 .findFirst()
                 .orElse(null);
-
-        return foundContact != null;
     }
 }
